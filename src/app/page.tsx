@@ -1,97 +1,109 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import TopBar from "../components/TopBar";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  console.log('Home component rendered');
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-          <br />
-          to learn about Vibe.js, a JavaScript library for creating interactive user interfaces.
-        </p>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-vibe-500 before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-vibe-500 after:via-vibe-700 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-vibe-700 before:dark:opacity-10 after:dark:from-vibe-900 after:dark:via-vibe-800 after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://vibe.js.org/docs"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Vibe.js features and API.
+    <>
+      <TopBar />
+      {/* Main Content */}
+      <main className="flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-gray-50 dark:bg-gray-900 pt-20">
+        {/* Hero Section */}
+        <section className="text-center">
+          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+            GitHub Copilot
+          </h1>
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 sm:mt-6 sm:text-xl">
+            Your AI-powered coding assistant. Write code faster, smarter, and with less effort.
           </p>
-        </a>
+          <div className="mt-6">
+            <a
+              href="https://github.com/features/copilot"
+              className="px-6 py-3 text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn More
+            </a>
+          </div>
+        </section>
 
-        <a
-          href="https://vibe.js.org/learn"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Vibe.js in an interactive course with quizzes!
-          </p>
-        </a>
+        {/* Features Section */}
+        <section id="features" className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl">
+          <div className="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              Context-Aware Suggestions
+            </h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">
+              Get intelligent code suggestions based on the context of your project.
+            </p>
+          </div>
+          <div className="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              Multi-Language Support
+            </h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">
+              Supports a wide range of programming languages to fit your needs.
+            </p>
+          </div>
+          <div className="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              Editor Integrations
+            </h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">
+              Seamlessly integrates with popular editors like VS Code, Neovim, and JetBrains IDEs.
+            </p>
+          </div>
+          <div className="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              Boilerplate Generation
+            </h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">
+              Automatically generate boilerplate code to save time and effort.
+            </p>
+          </div>
+          <div className="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              Real-Time Assistance
+            </h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">
+              Get real-time coding assistance as you type.
+            </p>
+          </div>
+          <div className="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              AI-Powered Learning
+            </h3>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">
+              Leverages machine learning models trained on billions of lines of code.
+            </p>
+          </div>
+        </section>
 
-        <a
-          href="https://vercel.com/templates?framework=vibe.js"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+        {/* Call to Action */}
+        <section id="get-started" className="mt-16 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            Start Using GitHub Copilot Today
           </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Vibe.js focused on creating interactive user interfaces.
+          <p className="mt-4 text-gray-600 dark:text-gray-400">
+            Experience the future of coding with GitHub Copilot. Try it now and see how it transforms your workflow.
           </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?framework=vibe.js"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Vibe.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+          <div className="mt-6">
+            <Link
+              href="/get-started"
+              className="px-6 py-3 text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700"
+            >
+              Get Started
+            </Link>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }

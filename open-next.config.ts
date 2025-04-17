@@ -21,7 +21,7 @@ const config = {
   },
 
   dangerous: {
-    enableCacheInterception: false,
+    enableCacheInterception: false, // Ensure this does not block routing
   },
 };
 

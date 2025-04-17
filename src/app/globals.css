@@ -16,6 +16,19 @@
   }
 }
 
+/* Add your global styles here */
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background-color: #f9fafb; /* Light mode background */
+  color: #111827; /* Light mode text color */
+}
+
+body.dark {
+  background-color: #111827; /* Dark mode background */
+  color: #f9fafb; /* Dark mode text color */
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
